@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <title>Aplikasi Pengukuran Kepuasan Lulusan Program Studi Manajemen</title>
+    </head>
+    <body
+        class="
+            flex flex-col
+            justify-between
+            item-center
+            p-8
+            min-h-screen
+            bg-gradient-to-r
+            from-green-400
+            to-pink-500
+            text-gray-800
+            md:flex-row
+        "
+    >
+        <main class="bg-white p-16 rounded-lg">
+            <h1 class="text-3xl font-bold mb-8">
+                <center><h2 class="text-2xl font-bold"> <font color="BLACK">PENGUKURAN TINGKAT KEPUASAN LULUSAN</font><br></h2></center>
+            </h1>
+
+            <form
+                action="{{ url_for('predict') }}"
+                method="post"
+                class="flex flex-col"
+            >
+                
+				<label for="Jalur_Masuk" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">JALUR MASUK:</font><br></h1></label
+                >
+                <select
+                    name="Jalur_Masuk"
+                    id="Jalur_Masuk"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="SNMPTN">SNMPTN</option>
+                    <option value="SBMPTN">SBMPTN</option>
+					<option value="Tumotou (T2)">Tumotou (T2)</option>
+					<option value="Sumikolah">Sumikolah</option>
+					<option value="Afirmasi">Afirmasi</option>
+                </select>
+				
+				<label for="Pilihan_Prodi_ke" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">PILIHAN PRODI KE:</font><br></h1></label
+                >
+				<select
+                    name="Pilihan_Prodi_ke"
+                    id="Pilihan_Prodi_ke"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="Pertama">Pertama</option>
+                    <option value="Kedua">Kedua</option>
+					<option value="Ketiga">Ketiga</option>
+                </select>
+
+				
+				<label for="Organisasi_Intra_kampus" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">ORGANISASI INTRA KAMPUS</font><br></h1></label
+                >
+				<select
+                    name="Organisasi_Intra_kampus"
+                    id="Organisasi_Intra_kampus"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="BEM/Senat">BEM/Senat</option>
+                    <option value="Kerohanian">Kerohanian</option>
+					<option value="Olahraga">Olahraga</option>
+					<option value="Seni">Seni</option>
+					<option value="Lingkungan">Lingkungan</option>
+					<option value="Kemanusiaan">Kemanusiaan</option>
+					<option value="Lainnya">Lainnya</option>
+					<option value="Tidak ada yang diikuti">Tidak ada yang diikuti</option>
+                </select>
+				
+				
+				<label for="Organisasi_Ekstra_kampus" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">ORGANISASI EKSTRA KAMPUS</font><br></h1></label
+                >
+				<select
+                    name="Organisasi_Ekstra_kampus"
+                    id="Organisasi_Ekstra_kampus"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="Kerohanian">Kerohanian</option>
+					<option value="Olahraga">Olahraga</option>
+					<option value="Seni">Seni</option>
+					<option value="Lingkungan">Lingkungan</option>
+					<option value="Kemanusiaan">Kemanusiaan</option>
+					<option value="Lainnya">Lainnya</option>
+					<option value="Tidak ada yang diikuti">Tidak ada yang diikuti</option>
+                </select>
+				
+				
+				<label for="Pekerjaan_Yang_di_Inginkan_Saat_Kuliah" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">HARAPAN PEKERJAAN SAAT KULIAH</font><br></h1></label
+                >
+				<select
+                    name="Pekerjaan_Yang_di_Inginkan_Saat_Kuliah"
+                    id="Pekerjaan_Yang_di_Inginkan_Saat_Kuliah"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="Pemerintah (pusat/departemen)">Pemerintah (pusat/departemen)</option>
+					<option value="Pemerintah (daerah)">Pemerintah (daerah)</option>
+					<option value="Pemerintah (BUMN, BHMN)">Pemerintah (BUMN, BHMN)</option>
+					<option value="Swasta (Jasa)">Swasta (Jasa)</option>
+					<option value="Swasta (Manufaktur)">Swasta (Manufaktur)</option>
+					<option value="Wiraswasta">Wiraswasta</option>
+                </select>				
+				
+                <label for="IPK" class="mb-2"><h1 class="text-1xl font-bold"> <font color="BLACK">IPK SAAT LULUS KULIAH</font><br></h1></label>
+                <input
+                    type="text"
+                    name="IPK"
+                    placeholder="IPK"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />				
+				
+				
+				<label for="Yang_di_lakukan_kerjakan_saat_ini" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KEGIATAN SAAT INI</font><br></h1></label
+                >
+				<select
+                    name="Yang_di_lakukan_kerjakan_saat_ini"
+                    id="Yang_di_lakukan_kerjakan_saat_ini"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="Masih kuliah/melanjutkan kuliah profesi atau pascasarjana">Masih kuliah/melanjutkan kuliah profesi atau pascasarjana</option>
+					<option value="Mencari/menunggu pekerjaan">Mencari/menunggu pekerjaan</option>
+					<option value="Sudah bekerja">Sudah bekerja</option>
+					<option value="Kuliah dan bekerja">Kuliah dan bekerja</option>
+                </select>					
+				
+				
+				<label for="Lama_mencari_pekerjaan" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">BERAPA LAMA MENDAPATKAN PEKERJAAN</font><br></h1></label
+                >
+				<select
+                    name="Lama_mencari_pekerjaan"
+                    id="Lama_mencari_pekerjaan"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="lebih dari 12 bulan sebelum lulus kuliah">lebih dari 12 bulan sebelum lulus kuliah</option>
+					<option value="6-12 bulan sebelum lulus kuliah">6-12 bulan sebelum lulus kuliah</option>
+					<option value="0-6 bulan sebelum lulus kuliah">0-6 bulan sebelum lulus kuliah</option>
+					<option value="0-3 bulan setelah lulus kuliah">0-3 bulan setelah lulus kuliah</option>
+					<option value="3-6 bulan setelah lulus kuliah">3-6 bulan setelah lulus kuliah</option>
+					<option value="6-12 bulan setelah lulus kuliah">6-12 bulan setelah lulus kuliah</option>
+					<option value="12-24 bulan setelah lulus kuliah">12-24 bulan setelah lulus kuliah</option>				
+                </select>					
+								
+						
+				<label for="Bidang_tempat_bekerja" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">BIDANG PEKERJAAN SAAT INI</font><br></h1></label
+                >
+				<select
+                    name="Bidang_tempat_bekerja"
+                    id="Bidang_tempat_bekerja"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="Instansi pemerintah (termasuk BUMN)">Instansi pemerintah (termasuk BUMN)</option>
+					<option value="Organisasi non-profit/Lembaga Swadaya Masyarakat">Organisasi non-profit/Lembaga Swadaya Masyarakat</option>
+					<option value="Perusahaan swasta">Perusahaan swasta</option>
+					<option value="Wiraswasta/perusahaan sendiri">Wiraswasta/perusahaan sendiri</option>
+					<option value="Lainnya">Lainnya</option>
+					<option value="SAYA BELUM BEKERJA">SAYA BELUM BEKERJA</option>			
+                </select>					
+				
+				
+                <label for="Pendapatan_saat_pertama_kali_bekerja_bulan" class="mb-2"><h1 class="text-1xl font-bold"> <font color="BLACK">PENDAPATAN SAAT PERTAMA BEKERJA</font><br></h1></label>
+                <input
+                    type="text"
+                    name="Pendapatan_saat_pertama_kali_bekerja_bulan"
+                    placeholder="Rp."
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />					
+				
+				
+                <label for="Pendapatan_utama_bulan" class="mb-2"><h1 class="text-1xl font-bold"> <font color="BLACK">PENDAPATAN UTAMA SAAT INI</font><br></h1></label>
+                <input
+                    type="text"
+                    name="Pendapatan_utama_bulan"
+                    placeholder="Rp."
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />					
+				
+		
+                <label for="Pendapatan_lembur_dan_tips_bulan"><h1 class="text-1xl font-bold"> <font color="BLACK">PENDAPATAN LEMBUR DAN TIPS</font><br></h1></label>
+                <input
+                    type="text"
+                    name="Pendapatan_lembur_dan_tips_bulan"
+                    placeholder="Rp."
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />						
+				
+				
+                <label for="Pendapatan_pekerjaan_lainnya_bulan"><h1 class="text-1xl font-bold"> <font color="BLACK">PENDAPATAN PEKERJAAN LAINNYA</font><br></h1></label>
+                <input
+                    type="text"
+                    name="Pendapatan_pekerjaan_lainnya_bulan"
+                    placeholder="Rp."
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />	
+
+				
+				<label for="Hubungan_antara_bidang_studi_dengan_pekerjaan" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">HUBUNGAN ANTARA BIDANG STUDI DENGAN PEKERJAAN</font><br></h1></label
+                >
+				<select
+                    name="Hubungan_antara_bidang_studi_dengan_pekerjaan"
+                    id="Hubungan_antara_bidang_studi_dengan_pekerjaan"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="Sangat Erat">Sangat Erat</option>
+					<option value="Erat">Erat</option>
+					<option value="Cukup Erat">Cukup Erat</option>
+					<option value="Kurang Erat">Kurang Erat</option>
+					<option value="Tidak Sama Skali">Tidak Sama Skali</option>		
+                </select>	
+
+				
+				<label for="Tingkat_pendidikan_yang_paling_tepat_sesuai_untuk_pekerjaan_saat_ini" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">TINGKAT PENDIDIKAN UNTUK PEKERJAAN SAAT INI</font><br></h1></label
+                >
+				<select
+                    name="Tingkat_pendidikan_yang_paling_tepat_sesuai_untuk_pekerjaan_saat_ini"
+                    id="Tingkat_pendidikan_yang_paling_tepat_sesuai_untuk_pekerjaan_saat_ini"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="Setingkat Lebih Tinggi">Setingkat Lebih Tinggi</option>
+					<option value="Tingkat yang Sama">Tingkat yang Sama</option>
+					<option value="Setingkat Lebih Rendah">Setingkat Lebih Rendah</option>
+					<option value="Tidak Perlu Pendidikan Tinggi">Tidak Perlu Pendidikan Tinggi</option>	
+                </select>	
+					
+				<label for="Pengetahuan_di_luar_bidang_atau_disiplin_ilmu" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">PENGETAHUAN DILUAR DISIPLIN ILMU</font><br></h1></label
+                >
+				<select
+                    name="Pengetahuan_di_luar_bidang_atau_disiplin_ilmu"
+                    id="Pengetahuan_di_luar_bidang_atau_disiplin_ilmu"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>					
+				
+				<label for="Pengetahuan_umum" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">PENGETAHUAN UMUM</font><br></h1></label
+                >
+				<select
+                    name="Pengetahuan_umum"
+                    id="Pengetahuan_umum"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>	
+
+				
+				<label for="Bahasa_Inggris" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">PENGETAHUAN BAHASA INGGRIS</font><br></h1></label
+                >
+				<select
+                    name="Bahasa_Inggris"
+                    id="Bahasa_Inggris"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>	
+
+
+				<label for="Keterampilan_internet_teknologi_informasi" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">PENGETAHUAN KETERAMPILAN TEKNOLOGI</font><br></h1></label
+                >
+				<select
+                    name="Keterampilan_internet_teknologi_informasi"
+                    id="Keterampilan_internet_teknologi_informasi"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>	
+
+
+				<label for="Keterampilan_komputer" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KETERAMPILAN KOMPUTER</font><br></h1></label
+                >
+				<select
+                    name="Keterampilan_komputer"
+                    id="Keterampilan_komputer"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+
+				<label for="Berpikir_kritis" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">BERPIKIR KRITIS</font><br></h1></label
+                >
+				<select
+                    name="Berpikir_kritis"
+                    id="Berpikir_kritis"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+
+				<label for="Keterampilan_riset" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KETERAMPILAN RISET</font><br></h1></label
+                >
+				<select
+                    name="Keterampilan_riset"
+                    id="Keterampilan_riset"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+
+				<label for="Kemampuan_belajar" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KEMAMPUAN BELAJAR</font><br></h1></label
+                >
+				<select
+                    name="Kemampuan_belajar"
+                    id="Kemampuan_belajar"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+				
+				<label for="Kemampuan_berkomunikasi" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KEMAMPUAN BERKOMUNIKASI</font><br></h1></label
+                >
+				<select
+                    name="Kemampuan_berkomunikasi"
+                    id="Kemampuan_berkomunikasi"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+				<label for="Bekerja_di_bawah_tekanan" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">BEKERJA DIBAWAH TEKANAN</font><br></h1></label
+                >
+				<select
+                    name="Bekerja_di_bawah_tekanan"
+                    id="Bekerja_di_bawah_tekanan"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+				
+				<label for="Manajemen_waktu" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">MANAJEMEN WAKTU</font><br></h1></label
+                >
+				<select
+                    name="Manajemen_waktu"
+                    id="Manajemen_waktu"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+
+				<label for="Bekerja_secara_mandiri" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">BEKERJA SECARA MANDIRI</font><br></h1></label
+                >
+				<select
+                    name="Bekerja_secara_mandiri"
+                    id="Bekerja_secara_mandiri"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+
+				<label for="Bekerja_dalam_tim_bekerjasama_dengan_orang_lain" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">BEKERJASAMA DALAM TEAM</font><br></h1></label
+                >
+				<select
+                    name="Bekerja_dalam_tim_bekerjasama_dengan_orang_lain"
+                    id="Bekerja_dalam_tim_bekerjasama_dengan_orang_lain"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+				<label for="Kemampuan_dalam_memecahkan_masalah" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KEMAMPUAN DALAM MEMECAHKAN MASALAH</font><br></h1></label
+                >
+				<select
+                    name="Kemampuan_dalam_memecahkan_masalah"
+                    id="Kemampuan_dalam_memecahkan_masalah"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+
+
+				<label for="Negosiasi" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">NEGOSIASI</font><br></h1></label
+                >
+				<select
+                    name="Negosiasi"
+                    id="Negosiasi"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+
+				<label for="Kemampuan_analisis" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KEMAMPUAN ANALISIS</font><br></h1></label
+                >
+				<select
+                    name="Kemampuan_analisis"
+                    id="Kemampuan_analisis"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+				<label for="Toleransi" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">TOLERANSI</font><br></h1></label
+                >
+				<select
+                    name="Toleransi"
+                    id="Toleransi"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+				<label for="Kemampuan_adaptasi" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KEMAMPUAN ADAPTASI</font><br></h1></label
+                >
+				<select
+                    name="Kemampuan_adaptasi"
+                    id="Kemampuan_adaptasi"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+
+				<label for="Loyalitas" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">LOYALITAS</font><br></h1></label
+                >
+				<select
+                    name="Loyalitas"
+                    id="Loyalitas"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+
+				<label for="Integritas_etika" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">INTEGRITAS ATAU ETIKA</font><br></h1></label
+                >
+				<select
+                    name="Integritas_etika"
+                    id="Integritas_etika"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+				
+				
+				<label for="Bekerja_dengan_orang_yang_berbeda_budaya_maupun_latar_belakang" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KERJASAMA DENGAN BEDA BUDAYA ATAU LATARBELAKANG</font><br></h1></label
+                >
+				<select
+                    name="Bekerja_dengan_orang_yang_berbeda_budaya_maupun_latar_belakang"
+                    id="Bekerja_dengan_orang_yang_berbeda_budaya_maupun_latar_belakang"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>
+				
+				
+				
+				<label for="Kemampuan_dalam_memegang_tanggungjawab" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KEMAMPUAN DALAM MEMEGANG TANGGUNGJAWAB</font><br></h1></label
+                >
+				<select
+                    name="Kemampuan_dalam_memegang_tanggungjawab"
+                    id="Kemampuan_dalam_memegang_tanggungjawab"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>				
+				
+				
+				<label for="Kepemimpinan" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KEPEMIMPINAN</font><br></h1></label
+                >
+				<select
+                    name="Kepemimpinan"
+                    id="Kepemimpinan"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>			
+				
+				
+				<label for="Inisiatif" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">INISIATIF</font><br></h1></label
+                >
+				<select
+                    name="Inisiatif"
+                    id="Inisiatif"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>					
+				
+				
+				
+				<label for="Kemampuan_untuk_memresentasikan_ide_produk_laporan" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KEMAMPUAN MEMPRESENTASIKAN IDE, PRODUK ATAU LAPORAN</font><br></h1></label
+                >
+				<select
+                    name="Kemampuan_untuk_memresentasikan_ide_produk_laporan"
+                    id="Kemampuan_untuk_memresentasikan_ide_produk_laporan"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>					
+				
+				
+				
+				
+				<label for="Kemampuan_dalam_menulis_laporan_memo_dan_dokumen" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">KEMAMPUAN DALAM MENULIS LAPORAN</font><br></h1></label
+                >
+				<select
+                    name="Kemampuan_dalam_menulis_laporan_memo_dan_dokumen"
+                    id="Kemampuan_dalam_menulis_laporan_memo_dan_dokumen"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>					
+								
+				
+				
+				
+				<label for="Manajemen_proyek_program" class="mt-4 mb-2"
+                    ><h1 class="text-1xl font-bold"> <font color="BLACK">MENAJEMEN PROYEK ATAU PROGRAM</font><br></h1></label
+                >
+				<select
+                    name="Manajemen_proyek_program"
+                    id="Manajemen_proyek_program"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>		
+                </select>				
+				
+				
+                <button
+                    type="submit"
+                    class="
+                        flex
+                        justify-center
+                        align-center
+                        mt-8
+                        p-4
+                        bg-gradient-to-r
+                        from-green-400
+                        to-blue-500
+                        text-white
+                        rounded-md
+                    "
+                >
+                    PROSES SEKARANG
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-arrow-right ml-4"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+        </main>
+        <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
+            <div class="bg-white p-16 rounded-lg">
+
+				<center><h2 class="text-5xl font-bold"> <font size="4">TINGKAT KEPUASAN LULUSAN</font><br></h2></center>
+			
+				{% if (tinggkat_kepuasan) == 5 %}			
+				<div class="mt-8">
+					<center><h2 class="text-5xl font-bold"> <font color="red">SANGAT PUAS</font><br></h2></center>
+				</div>
+				{% endif %}
+				{% if (tinggkat_kepuasan) == 4 %}
+				<div class="mt-8">
+					<center><h2 class="text-5xl font-bold"> <font color="red">PUAS</font><br></h2></center>
+				</div>
+				{% endif %}
+				{% if (tinggkat_kepuasan) == 3 %}
+				<div class="mt-8">
+					<center><h2 class="text-5xl font-bold"> <font color="red">KURANG PUAS</font><br></h2></center>
+				</div>
+				{% endif %}
+				{% if (tinggkat_kepuasan) == 2 %}
+				<div class="mt-8">
+					<center><h2 class="text-5xl font-bold"> <font color="red">TIDAK PUAS</font><br></h2></center>
+
+				</div>
+				{% endif %}
+				{% if (tinggkat_kepuasan) == 1 %}
+				<div class="mt-8">
+					<center><h2 class="text-5xl font-bold"> <font color="red">SANGAT TIDAK PUAS</font><br></h2></center>
+				</div>
+				{% endif %}     
+						
+					
+            </div>
+				
+			<div class="flex justify-around bg-white p-16 rounded-lg mt-8">
+                <img
+                    class="h-24 md:h-28"
+                    src="https://digitalent.kominfo.go.id/assets/@images/logo.png"
+                    alt="logo-dts"
+                />
+                <img
+                    class="h-24 md:h-28"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg/604px-Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg.png"
+                    alt="logo-kominfo"
+                />
+            </div>
+ 
+        </section>
+    </body>
+</html>
