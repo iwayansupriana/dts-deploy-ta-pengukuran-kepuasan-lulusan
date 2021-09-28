@@ -64,53 +64,50 @@ Repository ini berisi semua file yang dibutuhkan untuk melakukan deployment mode
 
 Agar dapat mengukur tingkat kepuasan lulusan, data input model harus mengikuti format sebagai berikut:\
 `[Jalur Masuk, Pilihan Prodi ke, Organisasi_Intra_kampus, Organisasi_Ekstra_kampus, Pekerjaan_Yang_di_Inginkan_Saat_Kuliah, IPK, Yang_di_lakukan_kerjakan_saat_ini, Lama_mencari_pekerjaan, Bidang_tempat_bekerja, Pendapatan_saat_pertama_kali_bekerja_bulan, Pendapatan_utama_bulan, Pendapatan_lembur_dan_tips_bulan, Pendapatan_pekerjaan_lainnya_bulan, Hubungan_antara_bidang_studi_dengan_pekerjaan, Tingkat_pendidikan_yang_paling_tepat_sesuai_untuk_pekerjaan_saat_ini, Pengetahuan_di_luar_bidang_atau_disiplin_ilmu, Pengetahuan_umum, Bahasa_Inggris, Keterampilan_internet_teknologi_informasi, Keterampilan_komputer, Berpikir_kritis, Keterampilan_riset, Kemampuan_belajar, Kemampuan_berkomunikasi, Bekerja_di_bawah_tekanan, Manajemen_waktu, Bekerja_secara_mandiri, Bekerja_dalam_tim_bekerjasama_dengan_orang_lain, Kemampuan_dalam_memecahkan_masalah, Negosiasi, Kemampuan_analisis, Toleransi, Kemampuan_adaptasi, Loyalitas, Integritas_etika, Bekerja_dengan_orang_yang_berbeda_budaya_maupun_latar_belakang, Kemampuan_dalam_memegang_tanggungjawab, Kepemimpinan, Inisiatif, Kemampuan_untuk_memresentasikan_ide_produk_laporan, Kemampuan_dalam_menulis_laporan_memo_dan_dokumen, Manajemen_proyek_program]`
-
+`[5, 1, 7, 5, 5, 3.78, 3, 3, 4, 1500000, 3000000, 500000, 100000, 3, 3, 5, 5, 5, 4, 4, 5, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ]`
 Sebagai contoh:\
-Age: 20\
-Sex: Male\
-Smoker: No
-
-Pilihan_Prodi_ke:
-Organisasi_Intra_kampus:
-Organisasi_Ekstra_kampus:
-Pekerjaan_Yang_di_Inginkan_Saat_Kuliah:
-IPK:
-Yang_di_lakukan_kerjakan_saat_ini:
-Lama_mencari_pekerjaan:
-Bidang_tempat_bekerja:
-Pendapatan_saat_pertama_kali_bekerja_bulan:
-Pendapatan_utama_bulan:
-Pendapatan_lembur_dan_tips_bulan:
-Pendapatan_pekerjaan_lainnya_bulan:
-Hubungan_antara_bidang_studi_dengan_pekerjaan:
-Tingkat_pendidikan_yang_paling_tepat_sesuai_untuk_pekerjaan_saat_ini:
-Pengetahuan_di_luar_bidang_atau_disiplin_ilmu
-Pengetahuan_umum:
-Bahasa_Inggris:
-Keterampilan_internet_teknologi_informasi:
-Keterampilan_komputer:
-Berpikir_kritis:
-Keterampilan_riset:
-Kemampuan_belajar:
-Kemampuan_berkomunikasi:
-Bekerja_di_bawah_tekanan:
-Manajemen_waktu:
-Bekerja_secara_mandiri:
-Bekerja_dalam_tim_bekerjasama_dengan_orang_lain:
-Kemampuan_dalam_memecahkan_masalah:
-Negosiasi:
-Kemampuan_analisis:
-Toleransi:
-Kemampuan_adaptasi:
-Loyalitas:
-Integritas_etika:
-Bekerja_dengan_orang_yang_berbeda_budaya_maupun_latar_belakang
-Kemampuan_dalam_memegang_tanggungjawab
-Kepemimpinan:
-Inisiatif:
-Kemampuan_untuk_memresentasikan_ide_produk_laporan:
-Kemampuan_dalam_menulis_laporan_memo_dan_dokumen:
-Manajemen_proyek_program:
+Jalur_Masuk: SNMPTN\
+Pilihan_Prodi_ke: Ketiga\
+Organisasi_Intra_kampus: BEM/Senat\
+Organisasi_Ekstra_kampus: Seni\
+Pekerjaan_Yang_di_Inginkan_Saat_Kuliah: Pemerintah (daerah)\
+IPK: 3.78\
+Yang_di_lakukan_kerjakan_saat_ini: Sudah bekerja\
+Lama_mencari_pekerjaan: 3-6 bulan setelah lulus kuliah\
+Bidang_tempat_bekerja: Perusahaan swasta
+Pendapatan_saat_pertama_kali_bekerja_bulan: 1500000\
+Pendapatan_utama_bulan: 3000000\
+Pendapatan_lembur_dan_tips_bulan: 500000\
+Pendapatan_pekerjaan_lainnya_bulan: 100000\
+Hubungan_antara_bidang_studi_dengan_pekerjaan: Cukup Erat\
+Tingkat_pendidikan_yang_paling_tepat_sesuai_untuk_pekerjaan_saat_ini: Tingkat yang Sama\
+Pengetahuan_di_luar_bidang_atau_disiplin_ilmu: 5\
+Pengetahuan_umum: 5\
+Bahasa_Inggris: 5\
+Keterampilan_internet_teknologi_informasi: 4\
+Keterampilan_komputer: 4\
+Berpikir_kritis: 5\
+Keterampilan_riset: 4\
+Kemampuan_belajar: 4\
+Kemampuan_berkomunikasi: 5
+Bekerja_di_bawah_tekanan: 5\
+Manajemen_waktu: 5\
+Bekerja_secara_mandiri: 5\
+Bekerja_dalam_tim_bekerjasama_dengan_orang_lain: 5\
+Kemampuan_dalam_memecahkan_masalah: 5\
+Negosiasi: 5\
+Kemampuan_analisis: 5\
+Toleransi: 5\
+Kemampuan_adaptasi: 5\
+Loyalitas: 5\
+Integritas_etika: 5\
+Bekerja_dengan_orang_yang_berbeda_budaya_maupun_latar_belakang: 5\
+Kemampuan_dalam_memegang_tanggungjawab: 5\
+Kepemimpinan: 5\
+Inisiatif: 5\
+Kemampuan_untuk_memresentasikan_ide_produk_laporan: 5\
+Kemampuan_dalam_menulis_laporan_memo_dan_dokumen: 5\
+Manajemen_proyek_program: 5\
     
 
 Akan diubah menjadi:\
